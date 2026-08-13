@@ -111,7 +111,7 @@ onBeforeUnmount(() => {
         <p>
           Email:
           <a href="mailto:yosik-kolenkin@yandex.ru" class="contact-link">
-            your-email@example.com
+            yosik-kolenkin@yandex.ru
           </a>
         </p>
 
