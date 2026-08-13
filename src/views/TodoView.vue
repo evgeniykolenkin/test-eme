@@ -71,7 +71,14 @@ const handleAddTodo = () => {
         placeholder="Добавь задачу"
         class="todo-input"
       />
-      <button type="submit" class="todo-btn todo-btn--add">Добавить</button>
+      <button
+        type="submit"
+        class="todo-btn todo-btn--add"
+        aria-label="Добавить задачу"
+      >
+        <span class="todo-btn__text">Добавить</span>
+        <span class="todo-btn__icon">＋</span>
+      </button>
     </form>
 
     <div class="todo-filters">
@@ -226,6 +233,9 @@ const handleAddTodo = () => {
   transition:
     opacity 0.2s,
     background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &--add {
     background-color: $color-primary;
@@ -234,6 +244,12 @@ const handleAddTodo = () => {
     &:hover {
       opacity: 0.9;
     }
+  }
+
+  &__icon {
+    display: none;
+    font-size: 20px;
+    line-height: 1;
   }
 
   &--edit,
@@ -418,6 +434,94 @@ const handleAddTodo = () => {
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
     }
+  }
+}
+
+@media (max-width: 576px) {
+  .todo-section {
+    padding: 20px 16px;
+    border-radius: 8px;
+  }
+
+  .todo-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .todo-form {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .todo-input {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .todo-btn--add {
+    padding: 0;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+
+    .todo-btn__text {
+      display: none;
+    }
+
+    .todo-btn__icon {
+      display: block;
+    }
+  }
+
+  .todo-filters {
+    gap: 4px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    justify-content: space-between;
+  }
+
+  .filter-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+    flex: 1;
+    text-align: center;
+  }
+
+  .todo-list {
+    gap: 8px;
+  }
+
+  .todo-item {
+    padding: 6px 12px;
+    min-height: 46px;
+
+    &__main {
+      margin-right: 8px;
+      gap: 10px;
+    }
+
+    &__content-wrapper {
+      min-height: 32px;
+    }
+
+    &__text {
+      font-size: 15px;
+      line-height: 32px;
+    }
+
+    &__actions {
+      gap: 4px;
+    }
+  }
+
+  .todo-input--edit {
+    height: 32px;
+    font-size: 15px;
+    padding: 0 8px;
+  }
+
+  .todo-btn--delete {
+    font-size: 20px;
   }
 }
 </style>

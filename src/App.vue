@@ -99,6 +99,7 @@ const navigate = (direction: "next" | "prev") => {
 </template>
 
 <style lang="scss">
+@use "sass:color";
 @use "@/assets/styles/variables" as *;
 
 .main-content {
@@ -159,7 +160,7 @@ const navigate = (direction: "next" | "prev") => {
     background-color 0.2s ease;
 
   &:hover {
-    background-color: darken(#42b883, 5%);
+    background-color: color.adjust(#42b883, $lightness: -5%);
     transform: scale(1.05);
   }
 
