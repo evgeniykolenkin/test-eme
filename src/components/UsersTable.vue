@@ -147,7 +147,7 @@ onMounted(() => {
           @click="currentPage--"
           class="pagination__btn"
         >
-          Назад
+          <
         </button>
         <span class="pagination__info">
           Страница <strong>{{ currentPage }}</strong> из
@@ -158,7 +158,7 @@ onMounted(() => {
           @click="currentPage++"
           class="pagination__btn"
         >
-          Вперед
+          >
         </button>
       </div>
     </div>

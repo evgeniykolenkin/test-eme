@@ -225,4 +225,61 @@ onBeforeUnmount(() => {
     opacity: 0.6;
   }
 }
+
+@media (max-width: 576px) {
+  .posts-list {
+    gap: 12px;
+  }
+
+  .post-card {
+    padding: 16px;
+
+    &__id {
+      top: 12px;
+      right: 12px;
+      font-size: 11px;
+    }
+
+    &__title {
+      font-size: 15px;
+      margin-bottom: 8px;
+      padding-right: 44px;
+    }
+
+    &__body {
+      font-size: 13px;
+      line-height: 1.4;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .skeleton-card {
+    padding: 16px;
+    margin-top: 12px;
+  }
+
+  .skeleton-line {
+    &--title {
+      height: 16px;
+      margin-bottom: 12px;
+    }
+    &--body-1 {
+      height: 12px;
+      margin-bottom: 6px;
+    }
+    &--body-2 {
+      height: 12px;
+    }
+  }
+
+  .feed-end {
+    padding: 20px;
+    font-size: 14px;
+  }
+}
 </style>

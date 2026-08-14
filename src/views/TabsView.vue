@@ -9,12 +9,17 @@ const router = useRouter();
 
 interface TabItem {
   id: string;
-  title: string;
+  desktopTitle: string;
+  mobileTitle: string;
 }
 
 const tabs: TabItem[] = [
-  { id: "users", title: "Таблица пользователей" },
-  { id: "feed", title: "Бесконечный скролл" },
+  {
+    id: "users",
+    desktopTitle: "Таблица пользователей",
+    mobileTitle: "Таблица",
+  },
+  { id: "feed", desktopTitle: "Бесконечный скролл", mobileTitle: "Скролл" },
 ];
 
 const DEFAULT_TAB_ID = "users";
@@ -48,7 +53,8 @@ const activeTabId = computed({
           ]"
           @click="activeTabId = tab.id"
         >
-          {{ tab.title }}
+          <span class="tabs-nav__text--desktop">{{ tab.desktopTitle }}</span>
+          <span class="tabs-nav__text--mobile">{{ tab.mobileTitle }}</span>
         </button>
       </div>
 
@@ -141,6 +147,14 @@ const activeTabId = computed({
       }
     }
   }
+
+  &__text--desktop {
+    display: inline;
+  }
+
+  &__text--mobile {
+    display: none;
+  }
 }
 
 .tabs-content {
@@ -181,5 +195,42 @@ const activeTabId = computed({
 .fade-slide-leave-to {
   opacity: 0;
   transform: translateX(-5px);
+}
+
+@media (max-width: 576px) {
+  .tabs-section {
+    padding: 20px 16px;
+    border-radius: 8px;
+  }
+
+  .tabs-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .tabs-nav {
+    padding: 0;
+    gap: 0;
+
+    &__btn {
+      flex: 1;
+      padding: 12px 8px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    &__text--desktop {
+      display: none;
+    }
+
+    &__text--mobile {
+      display: inline;
+    }
+  }
+
+  .tabs-content {
+    padding: 16px 12px;
+    min-height: 200px;
+  }
 }
 </style>
